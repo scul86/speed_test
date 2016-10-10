@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Speed test by scul86</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Speed test</h1>
+          <h2>Tests and plots internet speed</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/scul86/speed_test/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/scul86/speed_test/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/scul86/speed_test" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="speed_test" class="anchor" href="#speed_test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>speed_test</h1>
+
+<hr>
+
+<p>Tests your internet speed, stores in a database, and plots trends on <a href="https://plot.ly">plotly</a>.   </p>
+
+<h1>
+<a id="install-it" class="anchor" href="#install-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>INSTALL IT</h1>
+
+<hr>
+
+<p>Clone the repository:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/scul86/speed_test.git</pre></div>
+
+<p>Or download <a href="https://github.com/scul86/speed_test/releases">release zip</a></p>
+
+<h4>
+<a id="configure-your-python-environment" class="anchor" href="#configure-your-python-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure your python environment</h4>
+
+<p>I prefer to use <code>virtualenv</code> for my python environment...</p>
+
+<div class="highlight highlight-source-shell"><pre>$ virtualenv -p python3 venv
+$ venv/bin/pip install -r requirements.txt</pre></div>
+
+<p>Note, you might have to install <code>Cython</code> as well:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ venv/bin/pip install Cython</pre></div>
+
+<h4>
+<a id="set-up-the-database" class="anchor" href="#set-up-the-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set up the database:</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ sqlite3 speed.db
+sqlite<span class="pl-k">&gt;</span> CREATE TABLE data(
+...    id INTEGER PRIMARY KEY AUTOINCREMENT,
+...    ping INTEGER NOT NULL,
+...    down INTEGER NOT NULL,
+...    up   INTEGER NOT NULL,
+...    dt   DATETIME DEFAULT CURRENT_TIMESTAMP
+...    )<span class="pl-k">;</span>
+sqlite<span class="pl-k">&gt;</span> .<span class="pl-c1">exit</span></pre></div>
+
+<h4>
+<a id="personalize-speed_testconfig" class="anchor" href="#personalize-speed_testconfig" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Personalize speed_test.config</h4>
+
+<p>Change <code>speed_test.config</code> to contain your desired Paths and Plotly information.   </p>
+
+<h1>
+<a id="run-it" class="anchor" href="#run-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RUN IT</h1>
+
+<hr>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-k">~</span>/Documents/python/speed_test/speed_test.sh</pre></div>
+
+<p>This should export a <code>.png</code> of the graph at <code>[IMG_PATH]/internet_speeds.png</code>, and send the same data to your Plotly account.   </p>
+
+<h1>
+<a id="automate-it" class="anchor" href="#automate-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AUTOMATE IT</h1>
+
+<hr>
+
+<p>I run this automatically every 30 minutes with crontab:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ crontab -e
+<span class="pl-c"># m   h  dom mon dow   command</span>
+0,30  <span class="pl-k">*</span>  <span class="pl-k">*</span>   <span class="pl-k">*</span>   <span class="pl-k">*</span>    <span class="pl-k">~</span>/Documents/python/speed_test/speed_test.sh <span class="pl-k">&gt;&gt;</span> <span class="pl-k">~</span>/Documents/python/speed_test/speed.log <span class="pl-k">2&gt;&amp;1</span></pre></div>
+
+<p>This fetches the speed_test data every hour at 0 and 30 minutes, then reads, stores it in the db, and pushes to Plotly.   </p>
+
+<h1>
+<a id="improvements" class="anchor" href="#improvements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IMPROVEMENTS</h1>
+
+<hr>
+
+<p>Please submit a bug report if you find something that could be improved!</p>
+        </section>
+
+        <footer>
+          Speed test is maintained by <a href="https://github.com/scul86">scul86</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
