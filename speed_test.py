@@ -29,12 +29,12 @@ con = lite.connect(os.path.join(env_path, 'speed.db'))
 
 with con:
     cur = con.cursor()
-    cur.execute('''INSERT INTO data(ping,down,up,dt) VALUES(?,?,?,?)''',
-                (p.group(1),d.group(1),u.group(1),date_time))
+    cur.execute('''INSERT INTO data(ping,down,up) VALUES(?,?,?)''',
+                (p.group(1),d.group(1),u.group(1)))
 
 with con:
     cur = con.cursor()
-    cur.execute('SELECT id,ping,down,up,dt FROM data')
+    cur.execute("SELECT id,ping,down,up,datetime(dt, 'localtime') FROM data")
     rows = cur.fetchall()
 df = pd.DataFrame([[ij for ij in i] for i in rows])
 df.rename(columns={0: 'id', 1: 'Ping', 2: 'Download', 3: 'Upload', 4:'Date'}, inplace=True);
