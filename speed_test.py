@@ -75,5 +75,5 @@ layout = go.Layout(
 py.sign_in(user, api_key)
 data = go.Data([trace1,trace2])
 fig = go.Figure(data=data, layout=layout)
-# py.plot(fig, filename='Internet Speeds',world_readable=False,auto_open=False)
+py.plot(fig, filename='Internet Speeds',world_readable=False,auto_open=False)
 py.image.save_as(fig, filename=os.path.join(img_path,'internet_speeds.png'))
