@@ -35,15 +35,14 @@ sqlite> .exit
 ```
 
 #### Personalize speed_test.config
-Change `speed_test.config` to contain your Plotly username and API key
+Change `speed_test.config` to contain your desired Paths and Plotly information.
 
 # Run
 ---
 ```sh
 $ ~/Documents/python/speed_test/speed_test.sh
-$ ~/Documents/python/speed_test/speed_test_wrapper.sh
 ```
-This should export a `.png` of the graph at `speed_test/internet_speeds.png`, and send the same data to your Plotly account
+This should export a `.png` of the graph at `[IMG_PATH]/internet_speeds.png`, and send the same data to your Plotly account
 
 # Automation
 ---
