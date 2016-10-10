@@ -49,7 +49,7 @@ $ crontab -e
 0,30  *  *   *   *    ~/Documents/python/speed_test/speed_test.sh
 10,40 *  *   *   *    ~/Documents/python/speed_test/speed_test_wrapper.sh
 ```
-This fetches the speed_test data every hour at 0 and 30 minutes, then reads, stores it in the db, and pushes to Plotly every hour at 10 and 40 minutes.
+This fetches the speed_test data every hour at 0 and 30 minutes, then, every hour at 10 and 40 minutes, reads, stores it in the db, and pushes to Plotly.
 
 # Improvements
 ---
