@@ -52,10 +52,9 @@ I run this automatically every 30 minutes with crontab:
 $ crontab -e
 # m   h  dom mon dow   command
 0,30  *  *   *   *    ~/Documents/python/speed_test/speed_test.sh
-10,40 *  *   *   *    ~/Documents/python/speed_test/speed_test_wrapper.sh
 ```
 This fetches the speed_test data every hour at 0 and 30 minutes, then, every hour at 10 and 40 minutes, reads, stores it in the db, and pushes to Plotly.
 
 # Improvements
 ---
-I do not like having to use the `speed_test_wrapper.sh`, but the shebang doesn't expand the `$USER` variable, and this was the way I found to get around that LIMFAC.
+Please submit a bug report if you find something that could be improved!
