@@ -9,7 +9,7 @@ $ git clone https://github.com/scul86/speed_test.git
 ```
 Or download [release zip](https://github.com/scul86/speed_test/releases)
 #### Configure your python environment
-I prefer to use virtualenv for my python environment...
+I prefer to use `virtualenv` for my python environment...
 ```sh
 $ virtualenv -p python3 venv
 $ venv/bin/pip install -r requirements.txt
