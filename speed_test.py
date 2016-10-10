@@ -38,7 +38,7 @@ with con:
     rows = cur.fetchall()
 df = pd.DataFrame([[ij for ij in i] for i in rows])
 df.rename(columns={0: 'id', 1: 'Ping', 2: 'Download', 3: 'Upload', 4:'Date'}, inplace=True);
-df = df.sort(['Date'], ascending=[1])
+df = df.sort_values(by=['Date'], ascending=[1])
 
 trace1 = go.Scatter(
      x=df['Date'],
@@ -75,5 +75,5 @@ layout = go.Layout(
 py.sign_in(user, api_key)
 data = go.Data([trace1,trace2])
 fig = go.Figure(data=data, layout=layout)
-py.plot(fig, filename='internet speeds',world_readable=False,auto_open=False)
+# py.plot(fig, filename='Internet Speeds',world_readable=False,auto_open=False)
 py.image.save_as(fig, filename=os.path.join(img_path,'internet_speeds.png'))
