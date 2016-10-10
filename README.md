@@ -1,6 +1,7 @@
 # speed_test
 ---
 Tests your internet speed, stores in a database, and plots trends on [plotly](https://plot.ly).
+
 # Install
 ---
 Clone the repository:
@@ -8,6 +9,7 @@ Clone the repository:
 $ git clone https://github.com/scul86/speed_test.git
 ```
 Or download [release zip](https://github.com/scul86/speed_test/releases)
+
 #### Configure your python environment
 I prefer to use `virtualenv` for my python environment...
 ```sh
@@ -18,6 +20,7 @@ Note, you might have to install `Cython` as well:
 ```sh
 $ venv/bin/pip install Cython
 ```
+
 #### Set up the database:
 ```sh
 $ sqlite3 speed.db
@@ -30,6 +33,7 @@ sqlite> CREATE TABLE data(
 ...    );
 sqlite> .exit
 ```
+
 #### Personalize speed_test.config
 Change `speed_test.config` to contain your Plotly username and API key
 
@@ -40,6 +44,7 @@ $ ~/Documents/python/speed_test/speed_test.sh
 $ ~/Documents/python/speed_test/speed_test_wrapper.sh
 ```
 This should export a `.png` of the graph at `speed_test/internet_speeds.png`, and send the same data to your Plotly account
+
 # Automation
 ---
 I run this automatically every 30 minutes with crontab:
