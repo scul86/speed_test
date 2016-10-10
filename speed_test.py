@@ -1,5 +1,3 @@
-#! venv/bin/python3
-
 import re
 import os
 import configparser
@@ -26,9 +24,6 @@ p = re.match("Ping: (.*?) ms", lines[0])
 d = re.match("Download: (.*?) Mbit/s", lines[1])
 u = re.match("Upload: (.*?) Mbit/s", lines[2])
 date_time = lines[3]
-
-# print('Ping: {}\nDownload: {}\nUpload: {}'.\
-#      format(p.group(1), d.group(1), u.group(1)))
 
 con = lite.connect(os.path.join(env_path, 'speed.db'))
 
@@ -76,8 +71,6 @@ layout = go.Layout(
         side='right'
     )
 )
-
-# print(df)
 
 py.sign_in(user, api_key)
 data = go.Data([trace1,trace2])
